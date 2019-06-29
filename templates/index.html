@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="card-columns" style="column-count:1">
+    {% for manga in mangas %}
+        <div class="card text-white bg-dark">
+          <img src="//placehold.it/200x100"" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ manga }}</h5>
+            <!-- <p style="color:white"><a href="{{ url_for('manga', subpath=manga) }}">{{ manga }}<a></p> -->
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <a href="{{ url_for('manga', subpath=manga) }}" class="btn btn-primary btn-lg">View</a>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

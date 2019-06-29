@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+  <!-- <p style="color:white"><a href="{{ url_for('main_index')}}">Main Index<a></p> -->
+  {% if folders %}
+    <div class="container bg">
+      <ul class="list-group list-group-horizontal">
+        {% for folder in folders %}
+          <li class="list-group-item list-group-item-dark" style="color:white"><a href="{{ url_for('manga', subpath='{}/{}'.format(root, folder)) }}">{{ folder }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  {% if images %}
+    <div class="container" style="text-align:center">
+      {% for image_url in images %}
+        <img class="image-fluid"src="{{ url_for('static', filename='manga/{}'.format(image_url)) }}" alt="Flowers" style="max-width:100%">
+      {% endfor %}
+    </div>
+  {% endif %}
+
+{% endblock %}
